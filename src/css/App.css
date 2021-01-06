@@ -13,15 +13,18 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Main-color {
+  background-color: #dde0e6;
+}
+.Sidebar-color {
+  background-color: #20232a;
+}
+.List-text {
+  text-align: left;
+}
+.List-badge {
+  position: absolute;
+  right: 0;
 }
 
 .App-link {

@@ -1,0 +1,35 @@
+.Card-main {
+    margin: 10px 0;   
+}
+
+.Cardbody {
+    padding: 10px;
+}
+
+.Note-content {
+    margin-right: 160px;
+    display: block;
+    cursor: pointer;
+}
+
+.Note-details {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 20px;
+    top: 2px;
+}
+
+.Note-icons {
+    display: flex;
+   justify-content: flex-end; 
+}
+
+.Single-icon {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.Note-text {
+    text-align: left;
+}
