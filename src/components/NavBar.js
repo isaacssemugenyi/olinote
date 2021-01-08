@@ -3,36 +3,36 @@ import {
     Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input
 } from 'reactstrap';
 
+import NewNote from './MinorComponents/NewNote';
+
 import '../css/Navbar.css'
 
 const NavBar = (props) => { 
-    // Set modal   
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
-
+    // // Set modal   
+    // const [modal, setModal] = useState(false);
+    // const toggle = () => setModal(!modal);
     // Handle navbar collapse
     const [collapsed, setCollapsed] = useState(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
+    // // Handling form data
+    // const [ title, setTitle ] = useState("");
+    // const [ description, setDescription ] = useState("");
 
-    // Handling form data
-    const [ title, setTitle ] = useState("");
-    const [ description, setDescription ] = useState("");
+    // // const [ validateField, setValidateField ] = useState(false);
+    // // const emptyField = (target) => target.length <= 2 ? setValidateField(true) : setValidateField(false);
 
-    // const [ validateField, setValidateField ] = useState(false);
-    // const emptyField = (target) => target.length <= 2 ? setValidateField(true) : setValidateField(false);
+    // const handleTitle = e => e.target.value !== "" ? setTitle(e.target.value) : "";
+    // const handleDescription = e => e.target.value !== "" ? setDescription(e.target.value) : "";
 
-    const handleTitle = e => e.target.value !== "" ? setTitle(e.target.value) : "";
-    const handleDescription = e => e.target.value !== "" ? setDescription(e.target.value) : "";
-
-    const clearField = () => {
-        setTitle("")
-        setDescription("")
-    }
-    const handleSubmit = e => {
-        e.preventDefault();
-        alert(`${title}, ${description}`); 
-        clearField();
-    }
+    // const clearField = () => {
+    //     setTitle("")
+    //     setDescription("")
+    // }
+    // const handleSubmit = e => {
+    //     e.preventDefault();
+    //     alert(`${title}, ${description}`); 
+    //     clearField();
+    // }
     
 
     return (
@@ -41,9 +41,9 @@ const NavBar = (props) => {
             <NavbarBrand href="/" className="mr-auto">Olinote</NavbarBrand>
             <Nav className="mr-auto" navbar>
                 <NavItem>
-                    <Button color="primary" onClick={toggle}>Create A New Note</Button>
+                    <Button color="primary" onClick={toggle}></Button>
                     <div>
-                        <Modal isOpen={modal} toggle={toggle}>
+                        {/* <Modal isOpen={modal} toggle={toggle}>
                             <ModalHeader toggle={toggle}>Create New Note</ModalHeader>
                             <Form onSubmit={handleSubmit}>
                                 <ModalBody>
@@ -79,7 +79,7 @@ const NavBar = (props) => {
                                     <Button color="danger" onClick={toggle}>Cancel</Button>
                                 </ModalFooter>
                             </Form>
-                        </Modal>
+                        </Modal> */}
                     </div>
                 </NavItem>
             </Nav>

@@ -5,23 +5,23 @@ import { Delete, Archive, Share } from '@material-ui/icons';
 
 import '../../css/Note.css';
 
-const Note = (props) => {
+const Note = ({ title, created, content, fullShow, onDelete, onArchive, onShare }) => {
     return (
         <div>
             <Card className="Card-main">
-                <div className="Note-content" onClick={()=> alert('Hello there')}>
+                <div className="Note-content" onClick={ fullShow }>
                     <CardBody className="Cardbody">
-                        <CardTitle tag="h4" className="Note-text">{ props.title || 'No title' }</CardTitle>
-                        <CardText className="Note-text">{props.content || 'No content provided' }</CardText>
+                        <CardTitle tag="h4" className="Note-text">{ title || 'No title' }</CardTitle>
+                        <CardText className="Note-text">{content || 'No content provided' }</CardText>
                     </CardBody>
                 </div>
                 <div className="Note-details">
-                    <div> <small>Date created: <br /> 2021-01-06 </small> </div>
+                    <div> <small>Date created: <br /> { created } </small> </div>
                     <div className="Note-icons">
-                        <Delete color="secondary" className="Single-icon" onClick={()=> alert('Delete Btn')}></Delete>
-                        <Archive color="danger" className="Single-icon" onClick={()=> alert('Archive Btn')}></Archive>
+                        <Delete color="secondary" className="Single-icon" onClick={ onDelete }></Delete>
+                        <Archive color="danger" className="Single-icon" onClick={ onArchive }></Archive>
                         {/* <Unarchive className="Single-icon"></Unarchive> */}
-                        <Share color="success" className="Single-icon" onClick={()=> alert('Share Btn')}></Share>
+                        <Share color="success" className="Single-icon" onClick={ onShare }></Share>
                     </div>
                 </div>
             </Card>
