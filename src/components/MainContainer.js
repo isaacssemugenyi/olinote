@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import axios from "axios";
 
 import SidebarList from './MinorComponents/SidebarList';
 import Note from './MinorComponents/Note';
+import MainModal from './MinorComponents/MainModal';
+import DeleteNote from './MinorComponents/DeleteNote';
+// import DeleteAllNotes from './MinorComponents/DeleteAllNotes';
+import ShareNote from './MinorComponents/ShareNote';
 
 import '../css/MainContainer.css';
 
@@ -41,9 +45,9 @@ const MainContainer = (props) => {
               content={note.body}
               created={note.id}
               fullShow={() => alert(`full show of note ${note.id}`)}
-              onDelete={() => alert(`Delete note with id: ${note.id}`)} 
+              onDelete={() => <MainModal modalName="Delete" output={ <DeleteNote />} /> } 
               onArchive={() => alert(`Archive note with id: ${note.id}`)}
-              onShare={() => alert(`Share note with id: ${note.id}`)}
+              onShare={() => <MainModal output={ <ShareNote />} /> }
             />
             )
           }

@@ -1,12 +1,11 @@
 import React from 'react'
 
-const Clock = () => {
-    
+const DeleteAllNotes = () => {
     return (
         <div>
- 
+            
         </div>
     )
 }
 
-export default Clock
+export default DeleteAllNotes
