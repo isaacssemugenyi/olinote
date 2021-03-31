@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import GifLoader from 'react-gif-loader';
 import axios from "axios";
 
 import SidebarList from './MinorComponents/SidebarList';
@@ -15,6 +16,7 @@ const NotesURL = 'https://jsonplaceholder.typicode.com/comments';
 
 const MainContainer = (props) => {
   const [ notes, setNotes ] = useState([]);
+  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -22,9 +24,11 @@ const MainContainer = (props) => {
             setNotes(notes);
             const response = await axios.get(NotesURL);
             setNotes(response.data);
+            setLoading(false);
         } catch (e) {
             console.log(e);
             setNotes(notes);
+            setLoading(false);
         }
     };
     fetchNotes();
@@ -37,8 +41,14 @@ const MainContainer = (props) => {
             <SidebarList total={notes.length} />
         </Col>
         <Col sm="12" md="9" className="Note-container">
-
-          {notes.map((note, id) => 
+          {Loading && <GifLoader
+                loading={true}
+                imageSrc="https://media.giphy.com/media/l378zKVk7Eh3yHoJi/source.gif"
+                imageStyle={{"margin-top": "1%"}}
+                overlayBackground="rgba(0,0,0,0.5)"
+            />
+          }
+          {!Loading && notes.map((note, id) => 
             <Note 
               key={id}
               title={note.name}
